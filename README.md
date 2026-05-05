@@ -2,7 +2,6 @@
 
 A production-style Python derivatives pricing and risk analytics engine for equity options, built as a reusable package with tests, examples, notebooks, validation reports and a Streamlit dashboard.
 
-Expected GitHub URL: <https://github.com/husaam-atq/derivatives-pricing-engine>
 
 ## Project Overview
 
