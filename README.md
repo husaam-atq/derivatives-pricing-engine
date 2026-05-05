@@ -53,7 +53,7 @@ Generated from live validation checks in `reports/benchmark_results.csv`.
 | --- | --- |
 | ![Volatility surface dashboard screenshot](docs/images/dashboard_volatility_surface.png) | ![Delta hedging simulator dashboard screenshot](docs/images/dashboard_delta_hedging_simulator.png) |
 
-## For Recruiters And Interviewers
+## Why This Project Matters
 
 This is not a notebook-only demo. The pricing logic lives in a reusable Python
 package and is consumed by tests, examples, notebooks, reports and a dashboard.
