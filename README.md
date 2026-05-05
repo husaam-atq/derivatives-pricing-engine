@@ -12,8 +12,6 @@ A production-style Python derivatives pricing and risk analytics engine for
 equity options. The project is built as a reusable package with tested pricing
 models, executable notebooks, benchmark reports and a Streamlit dashboard.
 
-Repository: <https://github.com/husaam-atq/derivatives-pricing-engine>
-
 ## What This Project Demonstrates
 
 - Analytical pricing: Black-Scholes / Black-Scholes-Merton calls and puts with dividend yield.
@@ -321,53 +319,3 @@ not a live-market claim.
 ## License
 
 This project is released under the MIT License. See `LICENSE` for details.
-
-## CV Bullet Examples
-
-General:
-
-> Built a Python derivatives pricing engine implementing Black-Scholes, Greeks,
-> implied volatility solving, binomial trees, Monte Carlo pricing, Heston
-> stochastic volatility, delta hedging simulation and volatility surface
-> analytics, validated against analytical pricing benchmarks and numerical
-> convergence tests.
-
-Quant Analyst:
-
-> Developed a validated equity derivatives analytics library covering BSM
-> pricing, implied volatility, volatility surfaces, Heston calibration, scenario
-> analysis and hedging P&L attribution, with benchmark reports documenting model
-> accuracy and limitations.
-
-Quant Developer:
-
-> Engineered a modular Python pricing package under `src/` with typed APIs,
-> deterministic pytest coverage, executable examples, Streamlit dashboard
-> integration and optional CuPy acceleration fallback for Monte Carlo path
-> generation.
-
-Risk / Model Validation:
-
-> Implemented benchmark validation for option pricing models, comparing
-> analytical Greeks against finite differences, binomial convergence against
-> Black-Scholes, Monte Carlo estimates against confidence intervals and
-> synthetic Heston calibration against known parameters.
-
-Equity Derivatives:
-
-> Built an equity options pricing and risk toolkit with dividend-adjusted BSM,
-> American option trees, implied volatility surfaces, Heston stochastic
-> volatility, stress testing and delta hedging simulations across rebalancing
-> frequencies.
-
-## Interview Talking Points
-
-- Why put-call parity is a useful pricing sanity check.
-- Why vega, theta and rho conventions need to be explicit.
-- How Brent and Newton implied-vol solvers fail differently.
-- Why CRR trees converge to Black-Scholes for European options.
-- How antithetic and control variates reduce Monte Carlo estimator variance.
-- What full truncation Euler does in Heston variance simulation.
-- Why Heston calibration can fit prices but still be parameter-degenerate.
-- How hedge frequency, transaction costs and model assumptions interact.
-- Why validation reports should show actual benchmark outcomes rather than claims.
