@@ -16,11 +16,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
+          cache: pip
 
       - name: Install dependencies
         run: |
@@ -31,11 +31,11 @@ jobs:
       - name: Compile Python files
         run: python -m compileall src app examples
 
-      - name: Run tests
+      - name: Run pytest
         run: python -m pytest -v
 
-      - name: Ruff
+      - name: Run Ruff
         run: python -m ruff check .
 
-      - name: Black
+      - name: Run Black
         run: python -m black --check .

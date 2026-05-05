@@ -55,11 +55,16 @@ This report is generated from live benchmark checks in `derivatives_engine.utils
 
 ## Greek Convention
 
-Vega is reported per 1.00 volatility change, with helper output available per one volatility point. Rho is per 1.00 rate change, with helper output available per basis point. Theta is annualised calendar theta using the `-dV/dT` convention; daily theta divides by calendar days.
+Vega is reported per 1.00 volatility change, with helper output available
+per one volatility point. Rho is per 1.00 rate change, with helper
+output available per basis point. Theta is annualised calendar theta
+using the `-dV/dT` convention; daily theta divides by calendar days.
 
 ## Binomial Convergence
 
-European CRR prices converge toward Black-Scholes as the number of steps increases. The benchmark checks the 1000-step error target for calls and puts.
+European CRR prices converge toward Black-Scholes as the number of steps
+increases. The benchmark checks the 1000-step error target for calls
+and puts.
 
 | steps | binomial_price | black_scholes_price | absolute_error |
 | --- | --- | --- | --- |
@@ -81,7 +86,10 @@ European CRR prices converge toward Black-Scholes as the number of steps increas
 
 ## Heston Calibration
 
-Synthetic Heston calibration uses deterministic characteristic-function prices. The recovered parameters should be interpreted cautiously because Heston calibration can be non-unique and sensitive to strike/maturity coverage, objective scaling, and market data quality.
+Synthetic Heston calibration uses deterministic characteristic-function
+prices. The recovered parameters should be interpreted cautiously
+because Heston calibration can be non-unique and sensitive to
+strike/maturity coverage, objective scaling, and market data quality.
 
 | parameter | true | recovered | absolute_error |
 | --- | --- | --- | --- |
@@ -93,7 +101,10 @@ Synthetic Heston calibration uses deterministic characteristic-function prices. 
 
 ## Delta Hedging
 
-The hedging benchmark compares rebalancing frequencies under Black-Scholes assumptions with zero transaction costs. More frequent rebalancing should generally reduce hedging error dispersion in this idealised setting.
+The hedging benchmark compares rebalancing frequencies under
+Black-Scholes assumptions with zero transaction costs. More frequent
+rebalancing should generally reduce hedging error dispersion in this
+idealised setting.
 
 | rebalances_per_year | rebalance_every_steps | mean_pnl | std_pnl | p05 | p50 | p95 | mean_transaction_costs |
 | --- | --- | --- | --- | --- | --- | --- | --- |

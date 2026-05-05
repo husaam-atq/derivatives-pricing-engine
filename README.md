@@ -8,7 +8,11 @@
 ![Streamlit](https://img.shields.io/badge/app-Streamlit-ff4b4b)
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 
-A production-style Python derivatives pricing and risk analytics engine for equity options. The project is built as a reusable package with tested pricing models, executable notebooks, benchmark reports and a Streamlit dashboard.
+A production-style Python derivatives pricing and risk analytics engine for
+equity options. The project is built as a reusable package with tested pricing
+models, executable notebooks, benchmark reports and a Streamlit dashboard.
+
+Repository: <https://github.com/husaam-atq/derivatives-pricing-engine>
 
 ## What This Project Demonstrates
 
@@ -39,24 +43,22 @@ Generated from live validation checks in `reports/benchmark_results.csv`.
 
 ## Dashboard Screenshots
 
-<table>
-  <tr>
-    <td width="50%"><strong>Black-Scholes Pricer</strong><br><img src="docs/images/dashboard_black_scholes_pricer.png" alt="Black-Scholes pricer dashboard screenshot"></td>
-    <td width="50%"><strong>Greeks Visualiser</strong><br><img src="docs/images/dashboard_greeks_visualiser.png" alt="Greeks visualiser dashboard screenshot"></td>
-  </tr>
-  <tr>
-    <td width="50%"><strong>Monte Carlo Pricing</strong><br><img src="docs/images/dashboard_monte_carlo_pricer.png" alt="Monte Carlo pricer dashboard screenshot"></td>
-    <td width="50%"><strong>Heston Simulation</strong><br><img src="docs/images/dashboard_heston_simulation.png" alt="Heston simulation dashboard screenshot"></td>
-  </tr>
-  <tr>
-    <td width="50%"><strong>Volatility Surface</strong><br><img src="docs/images/dashboard_volatility_surface.png" alt="Volatility surface dashboard screenshot"></td>
-    <td width="50%"><strong>Delta Hedging Simulator</strong><br><img src="docs/images/dashboard_delta_hedging_simulator.png" alt="Delta hedging simulator dashboard screenshot"></td>
-  </tr>
-</table>
+| Black-Scholes Pricer | Greeks Visualiser |
+| --- | --- |
+| ![Black-Scholes pricer dashboard screenshot](docs/images/dashboard_black_scholes_pricer.png) | ![Greeks visualiser dashboard screenshot](docs/images/dashboard_greeks_visualiser.png) |
+
+| Monte Carlo Pricing | Heston Simulation |
+| --- | --- |
+| ![Monte Carlo pricer dashboard screenshot](docs/images/dashboard_monte_carlo_pricer.png) | ![Heston simulation dashboard screenshot](docs/images/dashboard_heston_simulation.png) |
+
+| Volatility Surface | Delta Hedging Simulator |
+| --- | --- |
+| ![Volatility surface dashboard screenshot](docs/images/dashboard_volatility_surface.png) | ![Delta hedging simulator dashboard screenshot](docs/images/dashboard_delta_hedging_simulator.png) |
 
 ## For Recruiters And Interviewers
 
-This is not a notebook-only demo. The pricing logic lives in a reusable Python package and is consumed by tests, examples, notebooks, reports and a dashboard.
+This is not a notebook-only demo. The pricing logic lives in a reusable Python
+package and is consumed by tests, examples, notebooks, reports and a dashboard.
 
 | Role | Why It Is Relevant |
 | --- | --- |
@@ -128,7 +130,9 @@ Conventions:
 
 ### Binomial Tree
 
-The CRR tree supports European and American calls/puts, continuous dividend yield and configurable step count. The validation suite checks convergence to Black-Scholes as steps increase.
+The CRR tree supports European and American calls/puts, continuous dividend
+yield and configurable step count. The validation suite checks convergence to
+Black-Scholes as steps increase.
 
 ### Monte Carlo
 
@@ -161,19 +165,27 @@ Parameters:
 - `sigma_v`: volatility of variance
 - `rho`: spot/variance shock correlation
 
-The package includes Heston Monte Carlo pricing and characteristic-function pricing used for deterministic synthetic calibration.
+The package includes Heston Monte Carlo pricing and characteristic-function
+pricing used for deterministic synthetic calibration.
 
 ### Heston Calibration
 
-Calibration uses `scipy.optimize.least_squares` with bounded parameters. The workflow generates synthetic prices from known Heston parameters, calibrates back to those prices and reports true vs recovered parameters, RMSE and MAE.
+Calibration uses `scipy.optimize.least_squares` with bounded parameters. The
+workflow generates synthetic prices from known Heston parameters, calibrates
+back to those prices and reports true vs recovered parameters, RMSE and MAE.
 
-Heston calibration is non-unique and sensitive to strike/maturity coverage, objective scaling and market data quality. The project reports fit quality without claiming Heston is universally superior to Black-Scholes.
+Heston calibration is non-unique and sensitive to strike/maturity coverage,
+objective scaling and market data quality. The project reports fit quality
+without claiming Heston is universally superior to Black-Scholes.
 
 ### Volatility Surface And Hedging
 
-The volatility surface module enriches option chains with implied volatility, interpolates incomplete grids and plots smiles and 3D surfaces.
+The volatility surface module enriches option chains with implied volatility,
+interpolates incomplete grids and plots smiles and 3D surfaces.
 
-The delta hedging simulator models selling or buying a European option, rebalancing the stock hedge, accruing cash, applying optional transaction costs and measuring final hedging error distribution.
+The delta hedging simulator models selling or buying a European option,
+rebalancing the stock hedge, accruing cash, applying optional transaction costs
+and measuring final hedging error distribution.
 
 ## Validation
 
@@ -188,7 +200,10 @@ Artifacts:
 - `reports/validation_report.md`
 - `reports/benchmark_results.csv`
 
-The report includes textbook Black-Scholes checks, put-call parity, IV recovery, finite-difference Greek validation, binomial convergence, Monte Carlo confidence intervals, variance reduction, Heston sanity checks, synthetic calibration and delta hedging metrics.
+The report includes textbook Black-Scholes checks, put-call parity, IV recovery,
+finite-difference Greek validation, binomial convergence, Monte Carlo
+confidence intervals, variance reduction, Heston sanity checks, synthetic
+calibration and delta hedging metrics.
 
 ## Installation
 
@@ -276,7 +291,11 @@ print(iv.implied_volatility)
 
 ## Results Interpretation
 
-The project validates analytical model outputs against known benchmarks and numerical estimates against statistical or convergence targets. Monte Carlo outputs include confidence intervals. Heston calibration is demonstrated on synthetic data so the true parameters are known; this is workflow validation, not a live-market claim.
+The project validates analytical model outputs against known benchmarks and
+numerical estimates against statistical or convergence targets. Monte Carlo
+outputs include confidence intervals. Heston calibration is demonstrated on
+synthetic data so the true parameters are known; this is workflow validation,
+not a live-market claim.
 
 ## Limitations
 
@@ -303,5 +322,52 @@ The project validates analytical model outputs against known benchmarks and nume
 
 This project is released under the MIT License. See `LICENSE` for details.
 
+## CV Bullet Examples
+
+General:
+
+> Built a Python derivatives pricing engine implementing Black-Scholes, Greeks,
+> implied volatility solving, binomial trees, Monte Carlo pricing, Heston
+> stochastic volatility, delta hedging simulation and volatility surface
+> analytics, validated against analytical pricing benchmarks and numerical
+> convergence tests.
+
+Quant Analyst:
+
+> Developed a validated equity derivatives analytics library covering BSM
+> pricing, implied volatility, volatility surfaces, Heston calibration, scenario
+> analysis and hedging P&L attribution, with benchmark reports documenting model
+> accuracy and limitations.
+
+Quant Developer:
+
+> Engineered a modular Python pricing package under `src/` with typed APIs,
+> deterministic pytest coverage, executable examples, Streamlit dashboard
+> integration and optional CuPy acceleration fallback for Monte Carlo path
+> generation.
+
+Risk / Model Validation:
+
+> Implemented benchmark validation for option pricing models, comparing
+> analytical Greeks against finite differences, binomial convergence against
+> Black-Scholes, Monte Carlo estimates against confidence intervals and
+> synthetic Heston calibration against known parameters.
+
+Equity Derivatives:
+
+> Built an equity options pricing and risk toolkit with dividend-adjusted BSM,
+> American option trees, implied volatility surfaces, Heston stochastic
+> volatility, stress testing and delta hedging simulations across rebalancing
+> frequencies.
+
+## Interview Talking Points
+
+- Why put-call parity is a useful pricing sanity check.
+- Why vega, theta and rho conventions need to be explicit.
+- How Brent and Newton implied-vol solvers fail differently.
+- Why CRR trees converge to Black-Scholes for European options.
+- How antithetic and control variates reduce Monte Carlo estimator variance.
+- What full truncation Euler does in Heston variance simulation.
+- Why Heston calibration can fit prices but still be parameter-degenerate.
 - How hedge frequency, transaction costs and model assumptions interact.
 - Why validation reports should show actual benchmark outcomes rather than claims.
