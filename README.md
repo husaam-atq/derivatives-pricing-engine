@@ -55,8 +55,7 @@ Generated from live validation checks in `reports/benchmark_results.csv`.
 
 ## Why This Project Matters
 
-This is not a notebook-only demo. The pricing logic lives in a reusable Python
-package and is consumed by tests, examples, notebooks, reports and a dashboard.
+This project is designed as more than a notebook-only demo: the pricing logic lives in a reusable Python package and is consumed by tests, examples, notebooks, benchmark reports and a Streamlit dashboard.
 
 | Role | Why It Is Relevant |
 | --- | --- |
