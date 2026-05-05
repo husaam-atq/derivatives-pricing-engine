@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "derivatives-pricing-engine"
+version = "0.1.0"
+description = "A reusable Python derivatives pricing and risk analytics engine."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Husaam Atq" }]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "plotly>=5.18",
+    "streamlit>=1.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "black>=24",
+    "ruff>=0.5",
+    "jupyter>=1",
+    "nbconvert>=7",
+]
+acceleration = [
+    "numba>=0.59",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+src = ["src", "tests", "examples", "app"]
+extend-exclude = [
+    "notebooks",
+    "notebooks/executed_*.ipynb",
+    ".venv",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]

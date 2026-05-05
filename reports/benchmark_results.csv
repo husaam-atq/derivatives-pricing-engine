@@ -1,0 +1,27 @@
+category,benchmark,metric,value,target,passed,notes
+Black-Scholes,Textbook call benchmark,absolute_error,1.642781443500496e-05,< 1e-4,True,price=10.45058357
+Black-Scholes,Textbook put benchmark,absolute_error,2.6022256970570368e-05,< 1e-4,True,price=5.57352602
+Black-Scholes,Put-call parity,absolute_error,0.0,< 1e-8,True,
+Implied volatility,Brent recovers sigma=0.15,absolute_error,3.0531133177191805e-16,< 1e-6,True,
+Implied volatility,Newton recovers sigma=0.15,absolute_error,5.168088179630104e-14,< 1e-5,True,
+Implied volatility,Brent recovers sigma=0.20,absolute_error,0.0,< 1e-6,True,
+Implied volatility,Newton recovers sigma=0.20,absolute_error,2.7755575615628914e-17,< 1e-5,True,
+Implied volatility,Brent recovers sigma=0.35,absolute_error,3.247402347028583e-14,< 1e-6,True,
+Implied volatility,Newton recovers sigma=0.35,absolute_error,2.7755575615628914e-16,< 1e-5,True,
+Greeks,Analytical vs finite-difference delta,absolute_error,8.274014806630703e-11,< 0.0001,True,Theta uses annualised calendar -dV/dT convention.
+Greeks,Analytical vs finite-difference gamma,absolute_error,2.681132781068296e-10,< 0.0001,True,Theta uses annualised calendar -dV/dT convention.
+Greeks,Analytical vs finite-difference vega,relative_error,8.114347177778688e-09,< 0.001,True,Theta uses annualised calendar -dV/dT convention.
+Greeks,Analytical vs finite-difference theta,absolute_error,4.919806784187131e-09,< 0.002,True,Theta uses annualised calendar -dV/dT convention.
+Greeks,Analytical vs finite-difference rho,relative_error,1.4917858751992953e-10,< 0.001,True,Theta uses annualised calendar -dV/dT convention.
+Binomial tree,CRR call convergence at 1000 steps,absolute_error,0.001999468420992301,< 0.02,True,
+Binomial tree,CRR put convergence at 1000 steps,absolute_error,0.0019994684232909066,< 0.02,True,
+Monte Carlo,European call vs Black-Scholes,absolute_error,0.006766244880655137,< 0.15 or analytical inside 95% CI,True,"price=10.457350, analytical=10.450584, CI=(10.365946, 10.548753)"
+Monte Carlo,European put vs Black-Scholes,absolute_error,0.07398024183498642,< 0.15 or analytical inside 95% CI,True,"price=5.647506, analytical=5.573526, CI=(5.593478, 5.701535)"
+Monte Carlo,antithetic standard error reduction,standard_error,0.033028025872054965,< plain SE 0.046623,True,
+Monte Carlo,control_variate_stock standard error reduction,standard_error,0.0178348038268032,< plain SE 0.046623,True,
+Heston,Simulation output shapes,passed,True,True,True,
+Heston,Full truncation non-negative variance,passed,True,True,True,
+Heston,Monte Carlo option price finite,price,9.100202478325635,finite and > 0,True,SE=0.080951
+Heston calibration,Synthetic chain pricing fit,RMSE,3.124283125892115e-05,< 0.05,True,Synthetic calibration is deterministic but can remain non-unique.
+Heston calibration,Optimizer success flag,success,True,True,True,`gtol` termination condition is satisfied.
+Delta hedging,Daily vs monthly hedging error,std_pnl,0.4257013562846416,< monthly std 1.910362,True,No transaction costs; same random seed by frequency.

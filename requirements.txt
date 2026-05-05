@@ -1,0 +1,16 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+plotly>=5.18
+pytest>=8
+streamlit>=1.30
+jupyter>=1
+nbconvert>=7
+nbformat>=5
+black>=24
+ruff>=0.5
+
+# Optional acceleration packages. Install manually if desired:
+# numba>=0.59
+# cupy-cuda12x
