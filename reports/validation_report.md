@@ -1,9 +1,26 @@
 # Validation Report
 
 This report is generated from live benchmark checks in `derivatives_engine.utils.validation`.
-It is intended to validate known analytical values, numerical convergence, stochastic error bars, and workflow-level sanity checks.
 
-**Overall:** 26/26 benchmark checks passed.
+## Executive Summary
+
+- **Overall result:** 26/26 benchmark checks passed.
+- **Scope:** analytical pricing, Greeks, implied volatility, tree convergence, Monte Carlo error bars, Heston simulation/calibration and delta hedging.
+- **Interpretation:** the engine matches known analytical references and passes numerical sanity checks; stochastic and calibration outputs are reported with appropriate limitations.
+- **Model governance note:** this is a benchmark suite for a portfolio project, not a formal model approval document.
+
+## Headline Results
+
+| area | result | evidence |
+| --- | --- | --- |
+| Black-Scholes | Call/put textbook benchmarks within tolerance | Call error 1.64e-05; put error 2.60e-05 |
+| Parity | Put-call parity holds for analytical prices | Absolute error 0.0 |
+| Implied volatility | Brent and Newton recover known volatilities | All IV recovery checks passed |
+| Binomial tree | CRR converges to Black-Scholes | 1000-step call/put error about 0.0020 |
+| Monte Carlo | Vanilla estimates pass statistical targets | 100k path call error 0.0068; put error 0.0740 |
+| Variance reduction | Both methods reduce standard error | Plain SE 0.04662; antithetic 0.03303; control 0.01783 |
+| Heston calibration | Synthetic calibration fits deterministic Heston prices | RMSE 3.12e-05 |
+| Delta hedging | Daily rebalancing reduces hedging error dispersion | Daily std 0.4257; monthly std 1.9104 |
 
 ## Benchmark Summary
 
