@@ -64,21 +64,47 @@ This project is designed as more than a notebook-only demo: the pricing logic li
 | Equity Derivatives | Covers vanilla pricing, American exercise trees, smiles/surfaces, Heston dynamics and delta hedging. |
 | Risk / Model Validation | Includes analytical benchmarks, numerical convergence, finite-difference checks, MC confidence intervals and honest limitations. |
 
+## Mathematical Finance Layer
+
+This repository is supported by a dedicated mathematical and numerical-methods
+layer that connects the implementation to the underlying theory without turning
+the project into a loose notes repo.
+
+Coverage includes:
+
+- risk-neutral pricing and discounted expected payoff intuition;
+- GBM dynamics, Brownian motion and dividend-adjusted drift;
+- Ito's lemma and the Black-Scholes-Merton PDE;
+- closed-form Black-Scholes pricing and Greeks;
+- Monte Carlo estimators, confidence intervals and `O(1 / sqrt(N))` convergence;
+- antithetic and control-variate variance reduction;
+- Heston stochastic volatility dynamics and calibration objectives;
+- model-risk limitations and validation caveats.
+
+Key references:
+
+- [Mathematical Foundations](docs/mathematical_foundations.md)
+- [Numerical Methods and Convergence](docs/numerical_methods.md)
+- [Model Risk and Limitations](docs/model_risk_and_limitations.md)
+- [Mathematical Derivations Notebook](notebooks/05_mathematical_derivations.ipynb)
+- [Numerical Convergence Report](reports/numerical_convergence_report.md)
+
 ## Architecture
 
 ```text
 derivatives-pricing-engine/
 |-- app/                         # Streamlit dashboard
 |-- data/                        # Synthetic sample option chain
-|-- docs/images/                 # Dashboard screenshots
+|-- docs/                        # Mathematical notes, model risk notes and images
+|   `-- images/                  # Dashboard and generated notebook figures
 |-- examples/                    # Executable scripts
-|-- notebooks/                   # Executable analysis notebooks
-|-- reports/                     # Generated benchmark CSV and Markdown report
+|-- notebooks/                   # Executable analysis and derivation notebooks
+|-- reports/                     # Validation, benchmark and convergence reports
 |-- src/derivatives_engine/      # Reusable Python package
 |   |-- calibration/             # Vol surface and Heston calibration
 |   |-- models/                  # BSM, binomial, Monte Carlo, Heston
 |   |-- risk/                    # Greeks, IV, hedging, scenarios
-|   `-- utils/                   # Market data, plotting, validation
+|   `-- utils/                   # Market data, plotting, validation, convergence reports
 `-- tests/                       # Pytest coverage
 ```
 
@@ -97,6 +123,7 @@ derivatives-pricing-engine/
 | `risk.hedging` | Delta hedging simulator with cash account, hedge position, transaction costs and P&L distribution. |
 | `risk.scenarios` | Spot, volatility, rate, time-decay and combined stress testing. |
 | `utils.validation` | Live benchmark runner that writes `reports/benchmark_results.csv` and `reports/validation_report.md`. |
+| `utils.convergence` | Numerical convergence helpers for CRR, Monte Carlo, variance reduction and Greek validation reports. |
 
 ## Models Implemented
 
@@ -190,12 +217,15 @@ Generate benchmark artifacts:
 
 ```bash
 python examples/generate_validation_report.py
+python examples/generate_numerical_convergence_report.py
 ```
 
 Artifacts:
 
 - `reports/validation_report.md`
 - `reports/benchmark_results.csv`
+- `reports/numerical_convergence_report.md`
+- `reports/numerical_convergence_results.csv`
 
 The report includes textbook Black-Scholes checks, put-call parity, IV recovery,
 finite-difference Greek validation, binomial convergence, Monte Carlo
@@ -236,6 +266,7 @@ python examples/price_option.py
 python examples/calibrate_heston.py
 python examples/run_delta_hedging.py
 python examples/generate_validation_report.py
+python examples/generate_numerical_convergence_report.py
 ```
 
 ## Run Notebooks
@@ -245,6 +276,7 @@ python -m jupyter nbconvert --to notebook --execute notebooks/01_black_scholes_a
 python -m jupyter nbconvert --to notebook --execute notebooks/02_monte_carlo_pricing.ipynb --output executed_02_monte_carlo_pricing.ipynb
 python -m jupyter nbconvert --to notebook --execute notebooks/03_heston_model_and_calibration.ipynb --output executed_03_heston_model_and_calibration.ipynb
 python -m jupyter nbconvert --to notebook --execute notebooks/04_delta_hedging_simulation.ipynb --output executed_04_delta_hedging_simulation.ipynb
+python -m jupyter nbconvert --to notebook --execute notebooks/05_mathematical_derivations.ipynb --output executed_05_mathematical_derivations.ipynb
 ```
 
 Executed notebooks are ignored by git.
